@@ -34,6 +34,7 @@ mergeFiles<-function(){
      trainData<-cbind(trainSub, trainData)
      names(trainData)<-col_names
      data<-rbind(testData,trainData)
+     library(dplyr)
      data<-group_by(data,subject,activity) %>% summarise_each(c("mean"))
      data
      write.table(data,"proyectFinalResultData.txt", row.names=FALSE)
